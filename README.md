@@ -37,8 +37,8 @@ try {
     // Cria uma nova requisição de pagamento com os dados da loja e do pagamento
     $paymentRequest = new PaymentRequest($seller, $payment);
 
-    // O retorno é a url de pagamento no PicPay
-    $paymentUrl = $paymentRequest->execute();
+    // O retorno tem a url de pagamento no PicPay, o qrcode, data de expiracao e seu id do pedido
+    $paymentResponse = $paymentRequest->execute();
 } catch (RequestException $e) {
     // Tratar os erros da requisição aqui
     $errorMessage = $e->getMessage();
@@ -88,8 +88,8 @@ try {
     // Cria uma nova requisição de status do pagamento com os dados da loja e id do pedido
     $statusRequest = new StatusRequest($seller, '102030');
 
-    // Faze a requisição. O retorno é o status do pagamento
-    $status = $statusRequest->execute();
+    // Faze a requisição. O retorno contém o status do pagamento, seu id do pedido e numero de autorizaçao caso esteja pago
+    $statusResponse = $statusRequest->execute();
 } catch (RequestException $e) {
     // Tratar os erros da requisição aqui
     $errorMessage = $e->getMessage();
@@ -118,8 +118,8 @@ try {
     // Cria uma nova requisição de cancelamento do pagamento com os dados da loja, id do pedido e codigo de autorização
     $cancelRequest = new CancelRequest($seller, '102030', '555008cef7f321d00ef236333');
 
-    // Faze a requisição. O retorno é o id do cancelamento
-    $cancellationId = $cancelRequest->execute();
+    // Faze a requisição. O retorno contém o id do cancelamento e seu id do pedido
+    $cancelResponse = $cancelRequest->execute();
 } catch (RequestException $e) {
     // Tratar os erros da requisição aqui
     $errorMessage = $e->getMessage();
