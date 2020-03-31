@@ -30,6 +30,7 @@ abstract class BaseRequest
             'headers' => [
                 'Content-Type' => 'application/json',
                 'x-picpay-token' => $seller->getPicpayToken(),
+                'accept-encoding' => 'gzip, deflate',
             ],
         ]);
     }
