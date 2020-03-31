@@ -7,7 +7,7 @@ namespace Picpay;
  *
  * @package Picpay
  */
-class Seller
+class Seller implements \JsonSerializable
 {
     /** @var string $apiUrl */
     private $apiUrl;
@@ -31,6 +31,14 @@ class Seller
         $this->sellerToken = $sellerToken;
 
         $this->apiUrl = $apiUrl ? : 'https://appws.picpay.com/ecommerce/public/';
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 
 

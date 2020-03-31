@@ -7,7 +7,7 @@ namespace Picpay;
  *
  * @package Picpay
  */
-class Buyer
+class Buyer implements \JsonSerializable
 {
     /** @var string $firstName */
     private $firstName;
@@ -40,6 +40,14 @@ class Buyer
         $this->document = $document;
         $this->email = $email;
         $this->phone = $phone;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 
     /**

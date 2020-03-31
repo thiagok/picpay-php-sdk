@@ -7,7 +7,7 @@ namespace Picpay;
  *
  * @package Picpay
  */
-class Payment
+class Payment implements \JsonSerializable
 {
     /** @var string $referenceId */
     private $referenceId;
@@ -41,6 +41,14 @@ class Payment
         $this->value = $value;
         $this->buyer = $buyer;
         $this->returnUrl = $returnUrl;
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 
     /**
