@@ -1,6 +1,6 @@
 # PicPay E-Commerce API - PHP SDK
 
-SDK PHP para a API de E-Commerce do PicPay
+SDK PHP agnóstico para a API de E-Commerce do PicPay.
 
 ## Dependências
 
