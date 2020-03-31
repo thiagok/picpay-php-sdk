@@ -46,7 +46,7 @@ abstract class BaseRequest
     public function execute()
     {
         try {
-            $this->client->send($this->makeRequest());
+            $response = $this->client->send($this->makeRequest());
         } catch (GuzzleRequestException $e) {
             $code = -1;
             $message = 'Request Error';

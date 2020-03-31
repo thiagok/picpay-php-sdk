@@ -48,6 +48,6 @@ class PaymentRequest extends BaseRequest
     */
     public function readResponse($reponseBody)
     {
-        return isset($reponseBody->paymentUrl) ? $reponseBody->paymentUrl : null;
+        return $reponseBody;
     }
 }

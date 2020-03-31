@@ -52,6 +52,6 @@ class CancelRequest extends BaseRequest
     */
     public function readResponse($reponseBody)
     {
-        return isset($reponseBody->cancellationId) ? $reponseBody->cancellationId : null;
+        return $reponseBody;
     }
 }

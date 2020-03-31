@@ -47,6 +47,6 @@ class StatusRequest extends BaseRequest
     */
     public function readResponse($reponseBody)
     {
-        return isset($reponseBody->status) ?  $reponseBody->status : null;
+        return $reponseBody;
     }
 }
