@@ -108,7 +108,7 @@ require_once('vendor/autoload.php');
 
 use Picpay\Seller;
 use Picpay\Exception\RequestException;
-use Picpay\Request\StatusRequest;
+use Picpay\Request\CancelRequest;
 
 // Dados da loja (PicPay Token e Seller Token)
 $seller = new Seller('5b008cef7f321d00ef2367b2', '4ef4edbd-5cda-42da-860b-0e8d7b90c784');
