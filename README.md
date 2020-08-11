@@ -29,8 +29,12 @@ $seller = new Seller('5b008cef7f321d00ef2367b2', '4ef4edbd-5cda-42da-860b-0e8d7b
 // Dados do comprador
 $buyer = new Buyer('João', 'Da Silva', '123.456.789-10', 'teste@picpay.com', '+55 27 12345-6789');
 
+// Data de expiração do pagamento
+// Você pode enviar um false, para deixar o padrão do PicPay
+$expireAt = date("c", strtotime("2022-12-31 23:59:59));
+
 // Dados do pedido
-$payment = new Payment('102030', 'http://www.sualoja.com.br/callback', 20.51, $buyer, 'http://www.sualoja.com.br/cliente/pedido/102030');
+$payment = new Payment('102030', 'http://www.sualoja.com.br/callback', 20.51, $expireAt, $buyer, 'http://www.sualoja.com.br/cliente/pedido/102030');
 
 // PAGAMENTO
 try {
